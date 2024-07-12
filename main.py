@@ -41,7 +41,7 @@ class LinuxDoBrowser:
     def click_topic(self):
         for topic in self.page.query_selector_all("#list-area .title"):
             page = self.context.new_page()
-            page.goto(HOME_URL + topic.get_attribute("href"))
+            page.goto(HOME_URL.rstrip('/') + topic.get_attribute("href"))
             if random.random() < 0.02:  # 100 * 0.02 * 30 = 60
                 self.click_like(page)
             time.sleep(10)
